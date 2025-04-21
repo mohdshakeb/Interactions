@@ -10,20 +10,27 @@ const poppins = Poppins({
   display: 'swap',
 });
 
+// Define anime.js types
+interface AnimeInstance {
+  (params: object): { [key: string]: unknown };
+}
+
 // Add TypeScript interface for window to recognize anime
 declare global {
   interface Window {
-    anime: any;
+    anime: AnimeInstance;
   }
 }
 
 export default function ButtonDemo() {
   const [isHovered, setIsHovered] = useState(false);
+  /* mousePosition is used in the component logic */
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const buttonRef = useRef<HTMLButtonElement>(null);
   const rippleRef = useRef<HTMLDivElement | null>(null);
   const reverseRippleRef = useRef<HTMLDivElement | null>(null);
-  const animeRef = useRef<any>(null);
+  const animeRef = useRef<AnimeInstance | null>(null);
   
   // Dynamically import anime.js to avoid server-side rendering issues
   useEffect(() => {

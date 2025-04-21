@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Home() {
   return (
@@ -6,10 +7,13 @@ export default function Home() {
       <div className="flex flex-col gap-6">
         <div className="w-full max-w-md bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden">
           <div className="relative h-64 w-full">
-            <img 
+            <Image 
               src="/images/card-image.jpg" 
               alt="Card Image"
-              className="w-full h-full object-cover"
+              fill
+              sizes="(max-width: 768px) 100vw, 400px"
+              priority
+              className="object-cover"
             />
           </div>
           <div className="p-6">

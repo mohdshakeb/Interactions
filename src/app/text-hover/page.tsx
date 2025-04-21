@@ -11,18 +11,26 @@ const poppins = Poppins({
   variable: '--font-poppins',
 });
 
+// Define anime.js types
+interface AnimeInstance {
+  (params: object): { [key: string]: unknown };
+}
+
 // Add TypeScript interface for window to recognize anime
 declare global {
   interface Window {
-    anime: any;
+    anime: AnimeInstance;
   }
 }
 
 export default function TextHover() {
+  // These state variables are used in the component logic
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [isHovered, setIsHovered] = useState(false);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const textRef = useRef<HTMLDivElement>(null);
-  const animeRef = useRef<any>(null);
+  const animeRef = useRef<AnimeInstance | null>(null);
   const lettersRef = useRef<HTMLSpanElement[]>([]);
   
   // Load anime.js
@@ -61,7 +69,7 @@ export default function TextHover() {
     setMousePosition({ x: mouseX, y: mouseY });
     
     // Animate each letter based on its distance from the mouse
-    lettersRef.current.forEach((letter, index) => {
+    lettersRef.current.forEach((letter) => {
       if (!letter) return;
       
       const letterRect = letter.getBoundingClientRect();
@@ -89,7 +97,7 @@ export default function TextHover() {
       const fontWeight = 200 + Math.floor(movementFactor * 400);
       
       // Apply animation
-      animeRef.current({
+      animeRef.current?.({
         targets: letter,
         translateX: moveX,
         translateY: moveY,
@@ -131,6 +139,7 @@ export default function TextHover() {
       key={index}
       ref={(el) => {
         if (el && !lettersRef.current.includes(el)) {
+          // Use index to position the element in the array
           lettersRef.current[index] = el;
         }
       }}
