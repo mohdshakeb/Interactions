@@ -1,24 +1,61 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Web Interactions Demo
+
+This project showcases various interactive web animations and effects using modern web technologies. It demonstrates how to implement engaging user interfaces with animations, transitions, and interactive elements.
+
+## Features
+
+- **Button Animations**: Interactive button with hover effects, ripple animations, and text transitions
+- **Text Hover Effects**: Text elements that respond to mouse movements with font-weight changes
+- **Dropdown Menus**: Custom dropdown with origin-aware scale animations
+- **More to Come**: This project will be expanded with additional interaction demos
+
+## Tech Stack
+
+- [Next.js](https://nextjs.org) - React framework for production
+- [TailwindCSS](https://tailwindcss.com) - Utility-first CSS framework
+- [Framer Motion](https://www.framer.com/motion/) - Animation library for React
+- [Anime.js](https://animejs.com/) - JavaScript animation library
 
 ## Getting Started
 
-First, run the development server:
+First, install the dependencies:
+
+```bash
+npm install
+# or
+yarn install
+```
+
+Then, run the development server:
 
 ```bash
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `/src/app` - Main application pages and layouts
+- `/src/app/button-demo` - Button animation demonstrations
+- `/src/app/text-hover` - Text hover effect demonstrations
+- `/src/app/dropdown` - Dropdown menu animations
+- `/public/images` - Static images and assets
+
+## Contributing
+
+Contributions are welcome! Feel free to submit a Pull Request.
+
+## License
+
+[MIT](LICENSE)
+
+## Acknowledgments
+
+- This project was inspired by modern web design trends and interaction patterns
+- Special thanks to the creators of Next.js, Framer Motion, and Anime.js
 
 ## Learn More
 
