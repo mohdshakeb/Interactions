@@ -19,7 +19,7 @@ export const Card: FC<CardProps> = ({
 }) => {
   return (
     <Link href={href} className="no-underline">
-      <div className="flex-shrink-0 w-72 bg-gray-100 rounded-xl overflow-hidden">
+      <div className="flex-shrink-0 w-72 bg-gray-50 border border-gray-100 rounded-xl overflow-hidden transition-all duration-300 transform hover:shadow-md hover:-translate-y-1">
         <div className="p-3 pb-0">
           <p className="text-sm text-gray-500 mb-1">{category}</p>
         </div>

@@ -87,7 +87,7 @@ export const AnimatedButton: FC<AnimatedButtonProps> = ({
     // Create ripple element if it doesn't exist
     if (!rippleRef.current) {
       const ripple = document.createElement('div');
-      ripple.className = 'absolute rounded-full bg-green-500 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none';
+      ripple.className = 'absolute rounded-full bg-gray-600 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none';
       buttonRef.current.appendChild(ripple);
       rippleRef.current = ripple;
     }
