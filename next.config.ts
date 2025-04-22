@@ -4,6 +4,7 @@ const nextConfig: NextConfig = {
   /* config options here */
   images: {
     domains: ['placekitten.com'],
+    unoptimized: true,
   },
   eslint: {
     // Ignore ESLint errors during builds
