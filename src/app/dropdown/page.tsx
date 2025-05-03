@@ -57,8 +57,8 @@ export default function Dropdown() {
           ref={buttonRef}
           onClick={toggleDropdown}
           className={`
-            px-6 py-2 rounded-lg bg-gray-50 text-gray-800 border border-gray-100
-            hover:bg-gray-100 transition-all duration-300 focus:outline-none focus:ring-1 focus:ring-gray-200
+            px-6 py-2 rounded-lg bg-zinc-50 text-zinc-800 border border-zinc-100
+            hover:bg-zinc-100 transition-all duration-300 focus:outline-none focus:ring-1 focus:ring-zinc-200
             ${poppins.className} font-medium
           `}
         >
@@ -90,7 +90,7 @@ export default function Dropdown() {
                 duration: 0.15
               }}
               className={`
-                absolute mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 z-10
+                absolute mt-2 w-48 bg-white rounded-lg shadow-lg border border-zinc-200 z-10
                 ${poppins.className}
               `}
             >
@@ -105,7 +105,7 @@ export default function Dropdown() {
                       duration: 0.2,
                       ease: "easeOut"
                     }}
-                    className="w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-gray-900 transition-colors duration-200"
+                    className="w-full text-left px-4 py-2 text-zinc-700 hover:bg-zinc-50 hover:text-zinc-900 transition-colors duration-200"
                     onClick={() => {
                       // Handle menu item click
                       console.log(`Clicked: ${item}`);

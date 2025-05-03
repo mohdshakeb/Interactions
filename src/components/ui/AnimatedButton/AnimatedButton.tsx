@@ -87,7 +87,7 @@ export const AnimatedButton: FC<AnimatedButtonProps> = ({
     // Create ripple element if it doesn't exist
     if (!rippleRef.current) {
       const ripple = document.createElement('div');
-      ripple.className = 'absolute rounded-full bg-gray-600 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none';
+      ripple.className = 'absolute rounded-full bg-zinc-600 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none';
       buttonRef.current.appendChild(ripple);
       rippleRef.current = ripple;
     }
@@ -144,7 +144,7 @@ export const AnimatedButton: FC<AnimatedButtonProps> = ({
     // Create reverse ripple element
     if (!reverseRippleRef.current) {
       const reverseRipple = document.createElement('div');
-      reverseRipple.className = 'absolute rounded-full bg-gray-800 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none';
+      reverseRipple.className = 'absolute rounded-full bg-zinc-800 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none';
       reverseRipple.style.zIndex = '2';
       buttonRef.current.appendChild(reverseRipple);
       reverseRippleRef.current = reverseRipple;
@@ -204,7 +204,7 @@ export const AnimatedButton: FC<AnimatedButtonProps> = ({
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       className={`
-        px-4 py-2 rounded-2xl font-medium bg-gray-800 text-white shadow-md 
+        px-4 py-2 rounded-2xl font-medium bg-zinc-800 text-white shadow-md 
         relative overflow-hidden w-48 h-14 cursor-pointer transition-all duration-300
         ${isHovered ? 'shadow-xl translate-y-[-2px]' : ''}
         ${poppins.className}

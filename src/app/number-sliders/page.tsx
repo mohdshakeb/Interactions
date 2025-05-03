@@ -76,9 +76,9 @@ export default function NumberSlidersPage() {
 
   return (
     <main className="flex min-h-screen items-center justify-center bg-white">
-      <div className="w-full max-w-[400px] rounded-3xl bg-gray-50 p-8 border-gray-100 border-1">
+      <div className="w-full max-w-[400px] rounded-3xl bg-zinc-50 p-8 border-zinc-100 border-1">
         <div className="mb-4 text-center">
-          <div className="text-base text-gray-500">
+          <div className="text-base text-zinc-500">
             Temporal Displacement
           </div>
           
@@ -94,7 +94,7 @@ export default function NumberSlidersPage() {
           {sliderValues.map((value, index) => (
             <div key={index} className="space-y-2">
               <div className="flex justify-between">
-                <div className="text-sm text-gray-500">
+                <div className="text-sm text-zinc-500">
                   {sliderLabels[index].name}
                 </div>
                 <div className="text-sm font-medium flex items-center">
@@ -127,8 +127,8 @@ export default function NumberSlidersPage() {
             </div>
           ))}
           
-          <div className="mt-8 pt-8 border-t border-gray-200 text-center">
-            <div className="text-sm font-medium text-gray-700">Formula: T(e, m, v) = e × m × v²</div>
+          <div className="mt-8 pt-8 border-t border-zinc-200 text-center">
+            <div className="text-sm font-medium text-zinc-700">Formula: T(e, m, v) = e × m × v²</div>
           </div>
         </div>
       </div>

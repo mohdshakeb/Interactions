@@ -47,7 +47,7 @@ export default function TimeDisplay({
       <div className="flex items-center justify-center">
         <div className="flex items-end">
           {isNegative && (
-            <span className="text-6xl text-gray-800 mr-1 mb-5 flex items-center">−</span>
+            <span className="text-6xl text-zinc-800 mr-1 mb-5 flex items-center">−</span>
           )}
           <NumberFlow 
             value={Math.abs(hours)} 
@@ -58,10 +58,10 @@ export default function TimeDisplay({
             }}
             transformTiming={numberFlowAnimation.transformTiming}
             opacityTiming={numberFlowAnimation.opacityTiming}
-            className="text-6xl font-semibold text-gray-800"
+            className="text-6xl font-semibold text-zinc-800"
             style={numberFlowAnimation.style}
           />
-          <span className="text-2xl text-gray-400 ml-1 mb-5">{firstUnit}</span>
+          <span className="text-2xl text-zinc-400 ml-1 mb-5">{firstUnit}</span>
         </div>
       </div>
     );
@@ -80,10 +80,10 @@ export default function TimeDisplay({
           }}
           transformTiming={numberFlowAnimation.transformTiming}
           opacityTiming={numberFlowAnimation.opacityTiming}
-          className="text-6xl font-semibold text-gray-800"
+          className="text-6xl font-semibold text-zinc-800"
           style={numberFlowAnimation.style}
         />
-        <span className="text-2xl text-gray-400 ml-1 mb-5">{firstUnit}</span>
+        <span className="text-2xl text-zinc-400 ml-1 mb-5">{firstUnit}</span>
       </div>
       
       <div className="flex items-end ml-4">
@@ -96,10 +96,10 @@ export default function TimeDisplay({
           }}
           transformTiming={numberFlowAnimation.transformTiming}
           opacityTiming={numberFlowAnimation.opacityTiming}
-          className="text-6xl font-semibold text-gray-800"
+          className="text-6xl font-semibold text-zinc-800"
           style={numberFlowAnimation.style}
         />
-        <span className="text-2xl text-gray-400 ml-1 mb-5">{secondUnit}</span>
+        <span className="text-2xl text-zinc-400 ml-1 mb-5">{secondUnit}</span>
       </div>
     </div>
   );

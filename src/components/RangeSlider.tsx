@@ -49,7 +49,7 @@ export default function RangeSlider({
     green: 'bg-green-500',
     purple: 'bg-purple-500',
     orange: 'bg-orange-500',
-    gray: 'bg-gray-500',
+    zinc: 'bg-zinc-500',
     black: 'bg-black'
   };
   
@@ -67,10 +67,10 @@ export default function RangeSlider({
     <div className="space-y-2">
       {label && showLabels && (
         <div className="flex justify-between items-center">
-          <label className="text-sm font-medium text-gray-700">
+          <label className="text-sm font-medium text-zinc-700">
             {label}
           </label>
-          <span className="text-sm font-medium text-gray-700">
+          <span className="text-sm font-medium text-zinc-700">
             <NumberFlow 
               value={value}
               willChange
@@ -84,17 +84,17 @@ export default function RangeSlider({
       )}
       
       <div className="relative h-8 w-full rounded-md overflow-hidden">
-        {/* Background bar - light gray */}
-        <div className="absolute inset-0 bg-gray-200"></div>
+        {/* Background bar - light zinc */}
+        <div className="absolute inset-0 bg-zinc-200"></div>
         
         {/* Active bar - using color prop with rounded corners */}
         <div 
-          className={`absolute inset-y-0 left-0 ${colorClass} rounded-sm`}
+          className={`absolute inset-y-0 left-0 bg-zinc-800 rounded-sm`}
           style={{ width: `${percentage}%` }}
         >
           {/* Handle - white vertical line 8px from right edge of active area */}
           <div 
-            className="absolute inset-y-2 w-[2px] bg-gray-500 rounded-sm"
+            className="absolute inset-y-2 w-[2px] bg-zinc-500 rounded-sm"
             style={{ right: '8px' }}
           ></div>
         </div>
@@ -143,7 +143,7 @@ export default function RangeSlider({
           className="absolute inset-y-0 right-4 flex items-center transition-opacity duration-300"
           style={{ opacity: isNearMax ? 0 : 1 }}
         >
-          <span className="text-gray-500 font-medium text-sm whitespace-nowrap">
+          <span className="text-zinc-500 font-medium text-sm whitespace-nowrap">
             <NumberFlow 
               value={max}
               willChange={false}

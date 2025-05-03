@@ -5,12 +5,12 @@ export default function Home() {
     <div className="flex flex-col items-center min-h-screen bg-white p-6">
       {/* Header section */}
       <div className="w-full max-w-4xl mb-12 text-center py-32">
-        <h1 className="text-4xl font-light mb-3 text-gray-800">Interactions</h1>
+        <h1 className="text-4xl font-light mb-3 text-zinc-800">Interactions</h1>
         <div className="flex justify-center gap-8">
-          <span className="text-sm font-medium text-gray-500">Animejs</span>
-          <span className="text-sm font-medium text-gray-500">Framer Motion</span>
-          <span className="text-sm font-medium text-gray-500">GSAP</span>
-          <span className="text-sm font-medium text-gray-500">NumberFlow</span>
+          <span className="text-sm font-medium text-zinc-500">Animejs</span>
+          <span className="text-sm font-medium text-zinc-500">Framer Motion</span>
+          <span className="text-sm font-medium text-zinc-500">GSAP</span>
+          <span className="text-sm font-medium text-zinc-500">NumberFlow</span>
         </div>
       </div>
       

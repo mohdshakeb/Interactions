@@ -143,7 +143,7 @@ export default function TextHover() {
           lettersRef.current[index] = el;
         }
       }}
-      className="inline-block transition-transform origin-center text-gray-800"
+      className="inline-block transition-transform origin-center text-zinc-800"
       style={{ 
         display: 'inline-block', 
         willChange: 'transform, font-weight',

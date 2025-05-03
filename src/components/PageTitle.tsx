@@ -12,7 +12,7 @@ export default function PageTitle({ title, subtitle }: PageTitleProps) {
         {title}
       </h1>
       {subtitle && (
-        <p className="mt-3 text-lg text-gray-600 dark:text-gray-400">
+        <p className="mt-3 text-lg text-zinc-600 dark:text-zinc-400">
           {subtitle}
         </p>
       )}
