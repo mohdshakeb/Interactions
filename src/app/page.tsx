@@ -10,6 +10,7 @@ export default function Home() {
           <span className="text-sm font-medium text-gray-500">Animejs</span>
           <span className="text-sm font-medium text-gray-500">Framer Motion</span>
           <span className="text-sm font-medium text-gray-500">GSAP</span>
+          <span className="text-sm font-medium text-gray-500">NumberFlow</span>
         </div>
       </div>
       
@@ -37,6 +38,14 @@ export default function Home() {
           image="/images/dropdown.png"
           altText="Dropdown menu example"
           href="/dropdown"
+        />
+        
+        <Card 
+          category="NumberFlow"
+          title="Temporal Displacement"
+          image="/images/temporal.png"
+          altText="Temporal displacement calculator"
+          href="/number-sliders"
         />
       </div>
     </div>

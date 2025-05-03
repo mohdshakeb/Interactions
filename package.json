@@ -6,12 +6,15 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "clean": "./clean-mac-files.sh"
   },
   "dependencies": {
+    "@number-flow/react": "^0.5.9",
     "@types/animejs": "^3.1.13",
     "animejs": "^4.0.1",
     "framer-motion": "^12.7.4",
+    "gsap": "^3.13.0",
     "next": "15.3.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
