@@ -19,43 +19,55 @@ const numberFlowAnimation = {
 
 export default function NumberSlidersPage() {
   // Initialize with default values
-  const [temporalDisplacement, setTemporalDisplacement] = useState(0);
-  const [sliderValues, setSliderValues] = useState([80, 4, 1.5]);
+  const [travelTime, setTravelTime] = useState({ hours: 0, minutes: 0 });
+  const [sliderValues, setSliderValues] = useState([300, 60, 1.5]);
   
   // Create a ref to track previous slider values to ensure animations trigger
-  const prevSliderValues = useRef([80, 4, 1.5]);
+  const prevSliderValues = useRef([300, 60, 1.5]);
   
   // Labels and unit displays for the sliders
   const sliderLabels = [
-    { name: 'Energy (zj)', unit: 'ZJ' },
-    { name: 'Temporal Mass (chn)', unit: 'chn' },
-    { name: 'Velocity (rm)', unit: 'rm' }
+    { name: 'Distance (km)', unit: 'km' },
+    { name: 'Speed (kph)', unit: 'kph' },
+    { name: 'Traffic Factor', unit: 'x' }
   ];
 
   // Min, max, and step values for each slider
   const sliderConfigs = [
-    { min: 1, max: 100, step: 1 },      // Energy: 1-100 ZJ
-    { min: 0.1, max: 10, step: 0.1 },   // Mass: 0.1-10 chn
-    { min: 0.1, max: 2, step: 0.1 }     // Velocity: 0.1-2 rm
+    { min: 0, max: 3000, step: 10 },     // Distance: 0-3000 km
+    { min: 40, max: 120, step: 5 },      // Speed: 40-120 kph
+    { min: 1, max: 4, step: 0.1 }        // Traffic Factor: 1-4 x
   ];
 
-  // Calculate temporal displacement: T(e, m, v) = e × m × v²
-  const calculateTemporalDisplacement = () => {
-    const energy = sliderValues[0];       // ZJ
-    const mass = sliderValues[1];         // chn
-    const velocity = sliderValues[2];     // rm
+  // Calculate break time based on distance
+  const calculateBreakTime = (distance: number): number => {
+    if (distance < 150) return 0;
+    if (distance <= 500) return 0.25; // 15 minutes
+    if (distance <= 1000) return 0.5; // 30 minutes
+    return distance / 300; // roughly 10 min per 150 km
+  };
+
+  // Calculate travel time using T(d, s, f) = (d / s) × f + b
+  const calculateTravelTime = () => {
+    const distance = sliderValues[0];    // Distance in km
+    const speed = sliderValues[1];       // Speed in kph
+    const factor = sliderValues[2];      // Traffic factor
     
-    // Formula: temporal_displacement = energy × mass × velocity²
-    const displacement = energy * mass * Math.pow(velocity, 2);
+    // Calculate break time based on distance
+    const breakTime = calculateBreakTime(distance);
     
-    // Apply direction: positive = future, negative = past
-    // Use total value to determine direction (threshold at 500)
-    const threshold = 500;
-    return displacement >= threshold ? (displacement - threshold) : -(threshold - displacement);
+    // Formula: travel_time = (distance / speed) × factor + breakTime
+    const travelTimeHours = (distance / speed) * factor + breakTime;
+    
+    // Convert to hours and minutes
+    const hours = Math.floor(travelTimeHours);
+    const minutes = Math.round((travelTimeHours - hours) * 60);
+    
+    return { hours, minutes };
   };
 
   useEffect(() => {
-    setTemporalDisplacement(calculateTemporalDisplacement());
+    setTravelTime(calculateTravelTime());
     // Update the previous values after the calculation
     prevSliderValues.current = [...sliderValues];
   }, [sliderValues]);
@@ -66,27 +78,19 @@ export default function NumberSlidersPage() {
     setSliderValues(newSliderValues);
   };
 
-  // Determine direction based on sign of displacement
-  const direction = temporalDisplacement >= 0 ? 'future' : 'past';
-  
-  // Get colors based on direction
-  const directionColor = direction === 'future' ? 'text-blue-500' : 'text-amber-500';
-  const directionBg = direction === 'future' ? 'bg-blue-500' : 'bg-amber-500';
-  const directionIcon = direction === 'future' ? '→' : '←';
-
   return (
     <main className="flex min-h-screen items-center justify-center bg-white">
       <div className="w-full max-w-[400px] rounded-3xl bg-zinc-50 p-8 border-zinc-100 border-1">
         <div className="mb-4 text-center">
           <div className="text-base text-zinc-500">
-            Temporal Displacement
+            Travel Time
           </div>
           
           <TimeDisplay 
-            hours={temporalDisplacement} 
-            yearMode={true} 
-            direction={direction} 
-            singleValueMode={true} 
+            hours={travelTime.hours} 
+            minutes={travelTime.minutes}
+            yearMode={false}
+            singleValueMode={false} 
           />
         </div>
 
@@ -105,7 +109,7 @@ export default function NumberSlidersPage() {
                       willChange
                       format={{ 
                         useGrouping: true, 
-                        maximumFractionDigits: index === 0 ? 0 : 1 
+                        maximumFractionDigits: index === 2 ? 1 : 0 
                       }}
                       transformTiming={numberFlowAnimation.transformTiming}
                       opacityTiming={numberFlowAnimation.opacityTiming}
@@ -128,7 +132,7 @@ export default function NumberSlidersPage() {
           ))}
           
           <div className="mt-8 pt-8 border-t border-zinc-200 text-center">
-            <div className="text-sm font-medium text-zinc-700">Formula: T(e, m, v) = e × m × v²</div>
+            <div className="text-sm font-medium text-zinc-700">Formula: T(d, s, f) = (d / s) × f + b</div>
           </div>
         </div>
       </div>

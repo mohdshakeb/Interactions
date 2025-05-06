@@ -42,7 +42,7 @@ export default function Home() {
         
         <Card 
           category="NumberFlow"
-          title="Temporal Displacement"
+          title="Travel Time Calculator"
           image="/images/temporal.png"
           altText="Temporal displacement calculator"
           href="/number-sliders"
