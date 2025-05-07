@@ -10,13 +10,13 @@ interface CardProps {
   href: string;
 }
 
-export const Card: FC<CardProps> = ({ 
+export function Card({ 
   category,
   title, 
   image, 
   altText, 
   href
-}) => {
+}: CardProps) {
   return (
     <Link href={href} className="no-underline">
       <div className="flex-shrink-0 w-72 bg-zinc-50 border border-zinc-100 rounded-xl overflow-hidden transition-all duration-300 transform hover:shadow-md hover:-translate-y-1">
@@ -40,4 +40,4 @@ export const Card: FC<CardProps> = ({
       </div>
     </Link>
   );
-}; 
+} 

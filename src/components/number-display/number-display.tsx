@@ -28,7 +28,7 @@ interface NumberDisplayProps {
   showDecimals?: boolean;
 }
 
-export default function NumberDisplay({ 
+export function NumberDisplay({ 
   value, 
   prefix = '', 
   suffix = '',

@@ -2,8 +2,8 @@
 
 import { useState, useEffect, useRef } from 'react';
 import NumberFlow from '@number-flow/react';
-import RangeSlider from '@/components/RangeSlider';
-import TimeDisplay from '@/components/TimeDisplay';
+import { RangeSlider } from '@/components/range-slider';
+import { TimeDisplay } from '@/components/time-display';
 
 // Common animation settings for NumberFlow components
 const numberFlowAnimation = {

@@ -26,7 +26,7 @@ interface RangeSliderProps {
   showLabels?: boolean;
 }
 
-export default function RangeSlider({
+export function RangeSlider({
   value,
   onChange,
   label,

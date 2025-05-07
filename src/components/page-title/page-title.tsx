@@ -5,7 +5,7 @@ interface PageTitleProps {
   subtitle?: string;
 }
 
-export default function PageTitle({ title, subtitle }: PageTitleProps) {
+export function PageTitle({ title, subtitle }: PageTitleProps) {
   return (
     <div className="text-center mb-10">
       <h1 className="text-3xl md:text-4xl font-bold tracking-tight">

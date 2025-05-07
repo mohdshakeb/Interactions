@@ -28,7 +28,7 @@ interface TimeDisplayProps {
   singleValueMode?: boolean;
 }
 
-export default function TimeDisplay({ 
+export function TimeDisplay({ 
   hours, 
   minutes = 0, 
   yearMode = false, 

@@ -1,6 +1,6 @@
 "use client";
 
-import { FC, useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect } from "react";
 import { Poppins } from "next/font/google";
 
 // Initialize the Poppins font
@@ -27,10 +27,10 @@ interface AnimatedButtonProps {
   hoverText: string;
 }
 
-export const AnimatedButton: FC<AnimatedButtonProps> = ({ 
-  defaultText = "Make payment", 
-  hoverText = "Start" 
-}) => {
+export function AnimatedButton({ 
+  defaultText = "Hover", 
+  hoverText = "Click" 
+}: AnimatedButtonProps) {
   const [isHovered, setIsHovered] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const buttonRef = useRef<HTMLButtonElement>(null);
@@ -87,7 +87,7 @@ export const AnimatedButton: FC<AnimatedButtonProps> = ({
     // Create ripple element if it doesn't exist
     if (!rippleRef.current) {
       const ripple = document.createElement('div');
-      ripple.className = 'absolute rounded-full bg-zinc-600 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none';
+      ripple.className = 'absolute rounded-full bg-pink-600 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none';
       buttonRef.current.appendChild(ripple);
       rippleRef.current = ripple;
     }
@@ -204,8 +204,8 @@ export const AnimatedButton: FC<AnimatedButtonProps> = ({
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       className={`
-        px-4 py-2 rounded-2xl font-medium bg-zinc-800 text-white shadow-md 
-        relative overflow-hidden w-48 h-14 cursor-pointer transition-all duration-300
+        px-4 py-2 rounded-xl font-medium bg-zinc-800 text-white shadow-md 
+        relative overflow-hidden w-32 h-14 cursor-pointer transition-all duration-300
         ${isHovered ? 'shadow-xl translate-y-[-2px]' : ''}
         ${poppins.className}
       `}
@@ -219,7 +219,7 @@ export const AnimatedButton: FC<AnimatedButtonProps> = ({
                 className={`
                   transform transition-all duration-300 ease-in-out
                   ${isHovered 
-                    ? `opacity-0 translate-y-[-20px] delay-[${index * 30}ms]` 
+                    ? `opacity-0 translate-y-[-8px] delay-[${index * 30}ms]` 
                     : `opacity-100 translate-y-0 delay-[${(hoverText.length + 2) * 30 + index * 30}ms]`
                   }
                 `}
@@ -242,7 +242,7 @@ export const AnimatedButton: FC<AnimatedButtonProps> = ({
                   transform transition-all duration-300 ease-in-out
                   ${isHovered 
                     ? `opacity-100 translate-y-0` 
-                    : `opacity-0 translate-y-[20px]`
+                    : `opacity-0 translate-y-[8px]`
                   }
                 `}
                 style={{
@@ -259,4 +259,4 @@ export const AnimatedButton: FC<AnimatedButtonProps> = ({
       </div>
     </button>
   );
-}; 
+} 
