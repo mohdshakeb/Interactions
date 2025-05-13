@@ -15,6 +15,8 @@ export default function Home() {
       </div>
       
       {/* Cards section */}
+      <div className="flex flex-col gap-4">
+        {/* First row */}
       <div className="flex flex-row gap-4 overflow-x-auto pb-4 pt-4 max-w-full">
         <Card 
           category="Animejs"
@@ -39,14 +41,26 @@ export default function Home() {
           altText="Dropdown menu example"
           href="/dropdown"
         />
-        
-        <Card 
-          category="NumberFlow"
-          title="Travel Time Calculator"
-          image="/images/temporal.png"
-          altText="Temporal displacement calculator"
-          href="/number-sliders"
-        />
+          
+          <Card 
+            category="NumberFlow"
+            title="Travel Time Calculator"
+            image="/images/temporal.png"
+            altText="Temporal displacement calculator"
+            href="/number-sliders"
+          />
+        </div>
+
+        {/* Second row */}
+        <div className="flex flex-row gap-4 overflow-x-auto pb-4 pt-4 max-w-full">
+          <Card 
+            category="Framer Motion"
+            title="Bottom bar"
+            image="/images/asset-counter.png"
+            altText="Bottom bar with actions"
+            href="/asset-counter-demo"
+          />
+        </div>
       </div>
     </div>
   );

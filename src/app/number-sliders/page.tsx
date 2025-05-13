@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from 'react';
 import NumberFlow from '@number-flow/react';
 import { RangeSlider } from '@/components/range-slider';
 import { TimeDisplay } from '@/components/time-display';
+import { CodeViewLayout } from '@/components/code-view-layout';
 
 // Common animation settings for NumberFlow components
 const numberFlowAnimation = {
@@ -78,8 +79,8 @@ export default function NumberSlidersPage() {
     setSliderValues(newSliderValues);
   };
 
-  return (
-    <main className="flex min-h-screen items-center justify-center bg-white">
+  const content = (
+    <main className="flex w-full min-h-screen items-center justify-center bg-white">
       <div className="w-full max-w-[400px] rounded-3xl bg-zinc-50 p-8 border-zinc-100 border-1">
         <div className="mb-4 text-center">
           <div className="text-base text-zinc-500">
@@ -137,5 +138,11 @@ export default function NumberSlidersPage() {
         </div>
       </div>
     </main>
+  );
+  
+  return (
+    <CodeViewLayout componentPath="src/app/number-sliders/page.tsx">
+      {content}
+    </CodeViewLayout>
   );
 } 
