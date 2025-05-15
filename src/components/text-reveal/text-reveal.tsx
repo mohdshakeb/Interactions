@@ -64,7 +64,7 @@ export function TextReveal({ text, className = '' }: TextRevealProps) {
           key={index}
           variants={child}
           style={{ marginRight: '5px' }}
-          className="text-l font-medium text-zinc-800"
+          className="text-2xl font-medium text-zinc-800"
         >
           {word}
         </motion.span>
