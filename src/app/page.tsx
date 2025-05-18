@@ -23,7 +23,7 @@ export default function Home() {
           title="Button Hover"
           image="/images/button.png"
           altText="Water bottle and towel on a wooden stool"
-          href="/button-demo"
+          href="/button-hover"
         />
         
         <Card 
@@ -47,7 +47,7 @@ export default function Home() {
             title="Travel Time Calculator"
             image="/images/temporal.png"
             altText="Temporal displacement calculator"
-            href="/number-sliders"
+            href="/travel-time-calculator"
           />
         </div>
 
@@ -56,9 +56,17 @@ export default function Home() {
           <Card 
             category="Framer Motion"
             title="Bottom bar"
-            image="/images/asset-counter.png"
+            image="/images/bottom_bar.png"
             altText="Bottom bar with actions"
-            href="/asset-counter-demo"
+            href="/bottom-bar"
+          />
+          
+          <Card 
+            category="GSAP"
+            title="Text Highlight"
+            image="/images/text_highlight.png"
+            altText="Text highlight on scroll"
+            href="/text-highlight"
           />
         </div>
       </div>

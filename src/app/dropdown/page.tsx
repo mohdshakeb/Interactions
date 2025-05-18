@@ -11,10 +11,10 @@ export default function DropdownPage() {
     'Help',
     'Sign out'
   ];
-  
+
   return (
     <CodeViewLayout componentPath="src/components/dropdown/dropdown.tsx">
-      <div className="flex items-center justify-center min-h-screen bg-white">
+    <div className="flex items-center justify-center min-h-screen bg-white">
         <Dropdown 
           items={menuItems}
           buttonText="Click"

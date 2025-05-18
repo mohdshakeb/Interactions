@@ -5,6 +5,22 @@ import NumberFlow from '@number-flow/react';
 import { RangeSlider } from '@/components/range-slider';
 import { TimeDisplay } from '@/components/time-display';
 
+interface TravelTime {
+  hours: number;
+  minutes: number;
+}
+
+interface SliderLabel {
+  name: string;
+  unit: string;
+}
+
+interface SliderConfig {
+  min: number;
+  max: number;
+  step: number;
+}
+
 // Common animation settings for NumberFlow components
 const numberFlowAnimation = {
   transformTiming: {
@@ -19,21 +35,21 @@ const numberFlowAnimation = {
 
 export function TravelTimeCalculator() {
   // Initialize with default values
-  const [travelTime, setTravelTime] = useState({ hours: 0, minutes: 0 });
+  const [travelTime, setTravelTime] = useState<TravelTime>({ hours: 0, minutes: 0 });
   const [sliderValues, setSliderValues] = useState([300, 60, 1.5]);
   
   // Create a ref to track previous slider values to ensure animations trigger
   const prevSliderValues = useRef([300, 60, 1.5]);
   
   // Labels and unit displays for the sliders
-  const sliderLabels = [
+  const sliderLabels: SliderLabel[] = [
     { name: 'Distance (km)', unit: 'km' },
     { name: 'Speed (kph)', unit: 'kph' },
     { name: 'Traffic Factor', unit: 'x' }
   ];
 
   // Min, max, and step values for each slider
-  const sliderConfigs = [
+  const sliderConfigs: SliderConfig[] = [
     { min: 0, max: 3000, step: 10 },     // Distance: 0-3000 km
     { min: 40, max: 120, step: 5 },      // Speed: 40-120 kph
     { min: 1, max: 4, step: 0.1 }        // Traffic Factor: 1-4 x
@@ -48,7 +64,7 @@ export function TravelTimeCalculator() {
   };
 
   // Calculate travel time using T(d, s, f) = (d / s) × f + b
-  const calculateTravelTime = () => {
+  const calculateTravelTime = (): TravelTime => {
     const distance = sliderValues[0];    // Distance in km
     const speed = sliderValues[1];       // Speed in kph
     const factor = sliderValues[2];      // Traffic factor

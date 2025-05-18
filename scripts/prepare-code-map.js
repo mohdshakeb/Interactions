@@ -11,7 +11,8 @@ const componentPaths = [
   'src/components/text-hover/text-hover.tsx',
   'src/components/dropdown/dropdown.tsx',
   'src/components/animated-button/animated-button.tsx',
-  'src/components/asset-counter/asset-counter.tsx'
+  'src/components/asset-counter/asset-counter.tsx',
+  'src/components/text-highlight/text-highlight.tsx'
 ];
 
 // Initialize the code map
