@@ -8,6 +8,7 @@ interface CardProps {
   image: string;
   altText: string;
   href: string;
+  className?: string;
 }
 
 export function Card({ 
@@ -15,11 +16,12 @@ export function Card({
   title, 
   image, 
   altText, 
-  href
+  href,
+  className = ''
 }: CardProps) {
   return (
-    <Link href={href} className="no-underline">
-      <div className="flex-shrink-0 w-72 bg-zinc-50 border border-zinc-100 rounded-xl overflow-hidden transition-all duration-300 transform hover:shadow-md hover:-translate-y-1">
+    <Link href={href} className={`no-underline ${className}`}>
+      <div className="flex-shrink-0 w-full sm:w-72 bg-zinc-50 border border-zinc-100 rounded-xl overflow-hidden transition-all duration-300 transform hover:shadow-md hover:-translate-y-1">
         <div className="p-3 pb-0">
           <p className="text-sm text-zinc-500 mb-1">{category}</p>
         </div>

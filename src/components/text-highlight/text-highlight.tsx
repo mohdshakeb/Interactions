@@ -12,8 +12,8 @@ declare global {
 
 interface HighlightColor {
   green: string;
-  pink: string;
   blue: string;
+  peach: string;
 }
 
 export function TextHighlight() {
@@ -24,9 +24,9 @@ export function TextHighlight() {
 
   // Define highlight colors
   const highlightColors = {
-    green: '#1BFC06',
-    pink: '#FF3366',
-    blue: '#00CCFF'
+    green: '#DDFF6F',
+    blue: '#6FFFFF',
+    peach: '#FFD494'
   };
 
   // Load GSAP dynamically
